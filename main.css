@@ -25,6 +25,7 @@ header {
   font-size: 20px;
   font-weight: bold;
   margin-right: 10px;
+  cursor: not-allowed
 }
 
 /* Hamburger menu button */
