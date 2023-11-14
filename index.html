@@ -5,17 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <script src="main.js" defer></script>
+    
     
     <title>Bookstore Web Application</title>
     
 </head>
 <body>
     <header>
-        <img id= "header logo" src="Assets/stack_of_books.png" alt="header-logo-books">
-        <h1>Bookman's Bookshop</h1>
-        <input type="search" id="search-bar" placeholder="work in progress...">
-        <button class="hamburger-menu-button">
+        <img id= "headerlogo" src="Assets/stack_of_books.png" alt="header-logo-books">
+        <h1>Bookman's Library</h1>
+        <!-- <input type="search" id="search-bar" placeholder="work in progress..."> -->
+        <!-- <button class="hamburger-menu-button">
             <span class="hamburger-menu-button-icon">
               <i class="fa-solid fa-bars"></i>
             </span>
@@ -24,13 +24,43 @@
             <ul>
               <li><a href="about.html">ABOUT</a></li>
             </ul>
-          </nav> 
+          </nav>  -->
           <!-- <h2 class="headline">Knowledge is meant to be shared</h2> -->
     </header>
-    <main>
+    <div id="form-container">
+    <form id="new-book-form">
+      <div>
+        <label>Book Name</label>
+        <input type="text" name="bookName"class="box"/>
+        <div>
+          <label>Book Author</label>
+        <input type="text" name="bookAuthor"class="box" />
+        <div>
+          <label>Description</label>
+          <textarea name="bookDescription"></textarea>
+        </div>
+        <div>
+          <label class="box">Image URL</label>
+          <input type="text" name="bookImageUrl" />
+        </div>
+        <div>
+          <strong>Genre</strong>
+          <div class="checkbox-item">
+            <label>Fiction</label>
+            <input type="radio" name="Fiction" value="fiction" />
+          </div>
+          <div class="checkbox-item">
+            <label>Non-Fiction</label>
+            <input type="radio" name="Non-Fiction" value="nonFiction" />
+          </div>
+          <input type="submit" class="button"/>
+      </form>
+    </div>
+      <hr>
+    <div id="main">
         
-      </main>
+      <div>
       
-      <footer></footer>    
+      <script src="main.js" defer></script>  
 </body>
 </html>

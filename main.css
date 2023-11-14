@@ -1,5 +1,6 @@
 body {
-  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-family: Verdana, Geneva, Tahoma, sans-serif, Haettenschweiler,
+    "Arial Narrow Bold", sans-serif;
 }
 
 #headerlogo {
@@ -17,36 +18,36 @@ h1 {
 
 header {
   background: linear-gradient(to left, black, gray);
-  height: 50px;
+  height: 75px;
 }
 
-#search-bar {
+/* #search-bar {
   font-size: 20px;
   font-weight: bold;
   margin-right: 10px;
   cursor: not-allowed;
-}
+} */
 
 /* Hamburger menu button */
-.hamburger-menu-button {
+/* .hamburger-menu-button {
   position: absolute;
   right: 50px;
   width: 50px;
   height: 50px;
   padding: 10px;
   background-color: transparent;
-  border: 5px solid white;
-  cursor: pointer;
-}
+  /* border: 5px solid white; */
+  /* cursor: pointer;
+} */
 
-.hamburger-menu-button-icon {
+/* .hamburger-menu-button-icon {
   color: rgb(255, 255, 255);
   width: 600px;
   height: 600px;
-}
+} */
 
 /* Hamburger menu */
-.hamburger-menu {
+/* .hamburger-menu {
   position: fixed;
   top: 0;
   left: 0;
@@ -56,26 +57,26 @@ header {
   opacity: 1;
   visibility: visible;
   transition: opacity 0.2s ease-in-out;
-}
+} */
 
-.hamburger-menu ul {
+/* .hamburger-menu ul {
   list-style: none;
   color: black;
   padding: 10px;
-}
-
+} */
+/* 
 .hamburger-menu a {
   color: whitesmoke;
   text-decoration: none;
-}
+} */
 
-/* When the hamburger menu button is clicked */
+When the hamburger menu button is clicked
 .hamburger-menu-button:active + .hamburger-menu {
   opacity: 1;
   visibility: visible;
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .about-page {
     display: none;
   }
@@ -83,27 +84,137 @@ header {
   .hamburger-menu-button:active + .hamburger-menu .about-page {
     display: block;
   }
+} */ */
+
+main {
+  padding: 20px;
+}
+
+.bookCardsElement {
+  /* max-width: 390px;
+  max-height: 302px; */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+  background-color: white;
+  /* padding: 10px;
+  border-radius: 3px;
+  border: solid 2px black;
+  align-items: center; */
+  /* margin: 10px; */
 }
 
 .bookcard {
-  width: 200px;
-  height: 500px;
+  border: 2px solid black;
   display: inline-block;
-  background-color: black;
-  padding: 10px;
-  border-radius: 3px;
-  border: solid 2px black;
-  text-align: center;
-  margin: 10px;
+  margin: 2px ;
+  padding: 20px;
+  text-align: left;
 }
 
-.bookcard strong {
-  margin-bottom: 10px;
+.bookcard h2 {
+ font-size: 18px;
+ font-weight: bold;
 }
+
+.bookcard h3 {
+  font-size: 15px;
+}
+
+
+
+/* .bookcard strong {s
+  margin-bottom: 10px;
+} */
 
 .bookcard img {
-  max-width: 200px;
-  max-height: 200px;
-  margin-bottom: 10px;
-  border: 3px solid white;
+  max-width: 100px;
+  max-height: 150px;
+  /* float: left; */
+  /* margin-right: 10px; */
+  margin: 0 auto;
+  /* border: 3px solid white; */
 }
+
+form {
+  border: 5px solid black;
+  width: 600px;
+  height: 175px;
+  padding: 25px 30px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  /* background: linear-gradient(to left, black, gray); */
+  margin: 100px 50px 0 75px;
+ 
+}
+
+#form-container{
+  margin: -108px 200px 50px ;
+  padding: 25px;
+  box-sizing: border-box;
+}
+
+form input {
+  margin: 1px 1px;
+  outline: none;
+  border: 1px solid #6665ee;
+  
+}
+
+form input.box {
+  width: 290px;
+  height: 15px;
+  font-size: 1.2 rem;
+  padding: 5px -2px;
+  margin: 1px 1px; 
+}
+
+
+form input.button {
+  font-size: 1rem;
+  padding: 12px 20px;
+  background-color: gray;
+  color: #ffff;
+  font-weight: 500;
+  cursor: pointer
+}
+
+#new-book-form input[type="submit"] {
+  transition: transform 0.2s ease-in-out;
+  transform: scale(1);
+}
+
+#new-book-form input[type="submit"]:hover {
+  transform: scale(1.1);
+}
+
+
+
+
+/* #wont-get-fooled-title {
+  color: azure;
+  text-align: left;
+  padding: 0px;
+  direction: ltr;
+} */
+
+/* strong {
+  color: azure;
+  text-align: justify;
+  padding: 100px;
+} */
+
+/* #wont-get-fooled-current-inventory {
+  color: azure;
+  text-align: center;
+} */
+
+/* #current-orders {
+  color: azure;
+  padding: 10px;
+} */
