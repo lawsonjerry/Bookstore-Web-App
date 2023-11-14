@@ -34,8 +34,10 @@ const booksToBorrow = [
 
 
 function createBookCard(book) {
+
+  //div for the main element
   const body = document.querySelector("body");
-  const mainSection = document.querySelector("#main"); //selects the main element on the html document
+  const mainSection = document.querySelector("#main"); 
   body.append(mainSection);
 
   //container for the bookCard Element
@@ -134,6 +136,11 @@ window.onload = function () {
   }
 };
 
+const bookCardsElement = document.querySelector(".bookCardsElement"); 
+
+// bookCardsElement.style.display = "none";
+
+
 //gets the form element
 const formElement = document.querySelector("form");
 
@@ -178,7 +185,7 @@ formElement.addEventListener("submit", (event) => {
   const deleteButton = document.createElement("button");
   deleteButton.classList.add("delete-button");
   deleteButton.textContent = "Delete";
-  newBookCard.appendChild(deleteButton);
+  // newBookCard.append(deleteButton);
 
    // Add a click event listener to the delete button.
    deleteButton.addEventListener("click", () => {
@@ -188,5 +195,23 @@ formElement.addEventListener("submit", (event) => {
   
 
   formElement.reset();
+  
+  alert(`Thank you for donating your book! Viva La Revolution!`)
+
+  // Navigate to the collections page.
+  // window.location.href = "./collections.html";
+
+   // Show the book cards element.
+  //  bookCardsElement.style.display = "block";
+
  
 });
+
+// document.querySelector("#enter-button").addEventListener("click", () => {
+//   // Hide the current page.
+//   document.querySelector(".page.active").classList.remove("active");
+//   console.log('this worked')
+
+//   // Show the donations page.
+//   document.querySelector("#donations-page").classList.add("active");
+// });

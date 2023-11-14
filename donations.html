@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="donations.css">
+    <link rel="shortcut icon" href="./Assets/Icons8-Windows-8-Cultures-Thor-Hammer.512.ico" />
+
+    <title>Underground Book Donations</title>
+ 
+ 
+    
+</head>
+<body> 
+    <div id="form-container">
+    <form id="new-book-form">
+      <div>
+        <label>Book Name</label>
+        <input type="text" name="bookName" class="box"/>
+        <div>
+          <label>Book Author</label>
+        <input type="text" name="bookAuthor" class="box" />
+        <div>
+          <label>Description</label>
+          <textarea name="bookDescription"></textarea>
+        </div>
+        <div>
+          <label class="box">Image URL</label>
+          <input type="text" name="bookImageUrl" />
+        </div>
+        <div>
+          <strong>Genre</strong>
+          <div class="checkbox-item">
+            <label>Fiction</label>
+            <input type="radio" name="Fiction" value="fiction" />
+          </div>
+          <div class="checkbox-item">
+            <label>Non-Fiction</label>
+            <input type="radio" name="Non-Fiction" value="nonFiction" />
+          </div>
+          <button type="submit" class="button">Donate</button>
+      </form>
+    </div>
+      <hr>
+    <div id="main">
+        
+    </div>
+      
+      <script src="main.js" defer></script>  
+</body>
+</html>
