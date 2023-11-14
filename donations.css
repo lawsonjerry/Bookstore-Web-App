@@ -129,6 +129,7 @@ form input.button {
   color: #ffff;
   font-weight: 500;
   cursor: pointer;
+  outline: none
 }
 
 #new-book-form input[type="submit"] {

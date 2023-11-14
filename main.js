@@ -7,7 +7,7 @@ const booksToBorrow = [
       "Book Description: In the enchanting pages of Won't Get Fooled Again prepare to be swept away by an unforgettable tale of passion, romance, and the complexities of the human heart.",
     img: "Assets/wont_get_fooled_again_bookCover.jpg",
     inventoryText: "Available To Borrow: ",
-    inventory: 3,
+    inventoryCounter: 3,
     order: 0,
   },
   {
@@ -76,13 +76,13 @@ function createBookCard(book) {
   bookImageElement.setAttribute("src", book.img);
 
   //span for book inventory
-  const currentBookItemInventoryText = document.createElement("span");
-  currentBookItemInventoryText.id = "wont-get-fooled-current-inventory";
-  currentBookItemInventoryText.textContent = book.inventoryText;
+  const currentBookItemInventoryCounter = document.createElement("h4");
+  currentBookItemInventoryCounter.id = "book-inventory-counter";
+  currentBookItemInventoryCounter.textContent = book.inventoryCounter;
 
-  const currentBookItemInventory = document.createElement("span");
-  currentBookItemInventory.id = "wont-get-fooled-current-inventory";
-  currentBookItemInventory.textContent = book.inventory;
+  const currentBookItemInventoryText = document.createElement("span");
+  currentBookItemInventoryText.id = "book-inventory-text";
+  currentBookItemInventoryText.textContent = book.inventoryText;
 
   //container for shopping area
   const bookShoppingArea = document.createElement("div");
@@ -99,11 +99,11 @@ function createBookCard(book) {
   bookCart.id = "book-cart";
   bookCart.textContent = "🛒";
   bookCart.addEventListener("click", () => {
-    console.log("click on shopping cart");
+   
     currentOrders.textContent = ++book.order;
     // currentBookItemInventoryText.textContent =
     // book.inventoryText + String(book.inventory);
-    --book.inventory;
+    currentBookItemInventoryCounter.textContent = --book.inventoryCounter;
   });
 
   const deleteButton = document.createElement("button");
@@ -122,7 +122,7 @@ function createBookCard(book) {
   bookCard.append(bookItemDescription);
   bookCard.append(bookItemGenre);
   bookCard.append(currentBookItemInventoryText);
-  bookCard.append(currentBookItemInventory);
+  bookCard.append(currentBookItemInventoryCounter);
   bookCard.append(bookShoppingArea);
   bookShoppingArea.append(currentOrders);
   bookShoppingArea.append(bookCart);
