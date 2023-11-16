@@ -33,6 +33,11 @@
     font-weight: 500px;
     line-height: 1.2;
     text-transform: capitalize;
+    text-align: center;
+  }
+
+  #enter-button {
+    padding: 5px;
   }
 
 

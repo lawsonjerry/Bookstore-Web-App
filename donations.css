@@ -22,12 +22,6 @@ header {
   height: 75px;
 }
 
-/* #search-bar {
-    font-size: 20px;
-    font-weight: bold;
-    margin-right: 10px;
-    cursor: not-allowed;
-  } */
 
 #main {
   padding: 20px;
@@ -39,8 +33,6 @@ header {
 }
 
 .bookCardsElement {
-  /* max-width: 390px;
-    max-height: 302px; */
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 20px;

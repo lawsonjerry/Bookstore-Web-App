@@ -159,10 +159,10 @@ const book = {
 };
 
 // Add the new book to the booksToBorrow array.
-booksToBorrow.push(book);
+// booksToBorrow.push(book);
 
 // Create a new book card for the new book.
-createBookCard(book);
+// createBookCard(book);
 
 formElement.addEventListener("submit", (event) => {
   event.preventDefault();
