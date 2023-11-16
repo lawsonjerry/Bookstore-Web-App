@@ -74,9 +74,17 @@ header {
   margin: 0 auto;
 }
 
+/* Styling for form */
+
+#form-container {
+  margin: -108px 200px 50px;
+  padding: 25px;
+  box-sizing: border-box;
+}
+
 form {
   border: 5px solid black;
-  width: 600px;
+  width: 450px;
   height: 175px;
   padding: 25px 30px;
   border-radius: 10px;
@@ -86,19 +94,12 @@ form {
   justify-content: center;
   align-items: center;
   text-align: center;
-  /* background: linear-gradient(to left, black, gray); */
   margin: 100px 50px 0 75px;
 }
 
 form:hover {
     background-color: rgba(0, 0, 0, 0.2);
   }
-
-#form-container {
-  margin: -108px 200px 50px;
-  padding: 25px;
-  box-sizing: border-box;
-}
 
 form input {
   margin: 1px 1px;
@@ -123,6 +124,16 @@ form input.button {
   cursor: pointer;
   outline: none
 }
+
+#new-book-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: left;
+  text-align: left;
+}
+
+
 
 #new-book-form input[type="submit"] {
   transition: transform 0.2s ease-in-out;

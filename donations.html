@@ -16,32 +16,32 @@
     <form id="new-book-form">
       <div>
         <label>Book Name</label>
-        <input type="text" name="bookName" class="box"/>
+        <input type="text" name="bookName" class="box" required/>
         <div>
           <label>Book Author</label>
-        <input type="text" name="bookAuthor" class="box" />
+        <input type="text" name="bookAuthor" class="box" required/>
         <div>
           <label>Description</label>
           <textarea name="bookDescription"></textarea>
         </div>
         <div>
           <label class="box">Image URL</label>
-          <input type="text" name="bookImageUrl" />
+          <input type="text" name="bookImageUrl" required/>
         </div>
         <div>
           <strong>Genre</strong>
-          <div class="checkbox-item">
-            <label>Fiction</label>
-            <input type="radio" name="Fiction" value="fiction" />
+          <div class="radio-group">
+            <label for="fiction">Fiction</label>
+            <input type="radio" id="fiction" name="genre" value="fiction" required/>
           </div>
-          <div class="checkbox-item">
-            <label>Non-Fiction</label>
-            <input type="radio" name="Non-Fiction" value="nonFiction" />
+          <div class="radio-group">
+            <label for="nonFiction">Non-Fiction</label>
+            <input type="radio" id="nonFiction" name="genre" value="nonFiction" required/>
           </div>
           <button type="submit" class="button">Donate</button>
+          <button type="submit" class="reset-button">Reset</button>
       </form>
     </div>
-      <hr>
     <div id="main">
         
     </div>

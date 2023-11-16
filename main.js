@@ -1,3 +1,4 @@
+//variable containing books to borrow
 const booksToBorrow = [
   {
     title: "Book Title: Won't Get Fooled",
@@ -17,8 +18,9 @@ const booksToBorrow = [
     description:
       "Book Description: The realm of White Rabbit lies a dazzling world of political surrealism, where reality and imagination seamlessly intertwine.",
     img: "Assets/white_rabbit_bookCover.jpg",
-    inventory: "Available To Borrow: 5",
-    order: "0",
+    inventoryText: "Available To Borrow:",
+    inventoryCounter: 5,
+    order: 0,
   },
   {
     title: "Book Title: How Much Is That Doggie",
@@ -27,17 +29,16 @@ const booksToBorrow = [
     description:
       "Book Description: Adventure awaits as a plucky young protagonist stumbles upon a mysterious magical and canine companion, setting off a chain of events that will leave readers spellbound.",
     img: "Assets/how_much_is_that_doggie_bookCover.jpeg",
-    inventory: "Available To Borrow: 9",
-    order: "0",
+    inventoryText: "Available To Borrow: ",
+    inventoryCounter: 9,
+    order: 0,
   },
 ];
 
-
 function createBookCard(book) {
-
   //div for the main element
   const body = document.querySelector("body");
-  const mainSection = document.querySelector("#main"); 
+  const mainSection = document.querySelector("#main");
   body.append(mainSection);
 
   //container for the bookCard Element
@@ -70,16 +71,17 @@ function createBookCard(book) {
   bookItemDescription.id = "description";
   bookItemDescription.textContent = book.description;
 
-  //image element for our books
+  //image element for book
   const bookImageElement = document.createElement("img");
   bookImageElement.id = "book-cover";
   bookImageElement.setAttribute("src", book.img);
 
-  //span for book inventory
+  //number of books in inventory
   const currentBookItemInventoryCounter = document.createElement("h4");
   currentBookItemInventoryCounter.id = "book-inventory-counter";
   currentBookItemInventoryCounter.textContent = book.inventoryCounter;
 
+  //text for books in inventory
   const currentBookItemInventoryText = document.createElement("span");
   currentBookItemInventoryText.id = "book-inventory-text";
   currentBookItemInventoryText.textContent = book.inventoryText;
@@ -99,21 +101,18 @@ function createBookCard(book) {
   bookCart.id = "book-cart";
   bookCart.textContent = "🛒";
   bookCart.addEventListener("click", () => {
-   
     currentOrders.textContent = ++book.order;
-    // currentBookItemInventoryText.textContent =
-    // book.inventoryText + String(book.inventory);
     currentBookItemInventoryCounter.textContent = --book.inventoryCounter;
   });
 
   const deleteButton = document.createElement("button");
   deleteButton.classList.add("delete-button");
   deleteButton.textContent = "Delete";
-    // Add a click event listener to the delete button.
-    deleteButton.addEventListener("click", () => {
-      // Remove the new book card from the DOM.
-      bookCard.remove();
-    });
+  // Add a click event listener to the delete button.
+  deleteButton.addEventListener("click", () => {
+    // Remove the new book card from the DOM.
+    bookCard.remove();
+  });
 
   //appends all the elements in order to be displayed online
   bookCard.append(bookImageElement);
@@ -136,10 +135,7 @@ window.onload = function () {
   }
 };
 
-const bookCardsElement = document.querySelector(".bookCardsElement"); 
-
-// bookCardsElement.style.display = "none";
-
+const bookCardsElement = document.querySelector(".bookCardsElement");
 
 //gets the form element
 const formElement = document.querySelector("form");
@@ -158,11 +154,12 @@ const book = {
   img,
 };
 
-// Add the new book to the booksToBorrow array.
-// booksToBorrow.push(book);
-
-// Create a new book card for the new book.
-// createBookCard(book);
+const reset = document.querySelector(".reset-button")
+reset.addEventListener("click", (event) => {
+  event.preventDefault();
+  formElement.reset();
+  alert(`Rome was not built in day!`)
+})
 
 formElement.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -173,8 +170,20 @@ formElement.addEventListener("submit", (event) => {
     return alert("You must provide the title of the book!");
   }
 
-   // Create a new book card.
-   const newBookCard = createBookCard({
+  if (formElement.bookAuthor.value === "") {
+    return alert("You must provide the author of the book!");
+  }
+
+  if (formElement.bookImageUrl.value === "") {
+    return alert("You must provide an image of the book!");
+  }
+
+
+
+  console.log(reset)
+
+  // Create a new book card.
+  const newBookCard = createBookCard({
     title: event.target.bookName.value,
     author: event.target.bookAuthor.value,
     description: event.target.bookDescription.value,
@@ -187,31 +196,13 @@ formElement.addEventListener("submit", (event) => {
   deleteButton.textContent = "Delete";
   // newBookCard.append(deleteButton);
 
-   // Add a click event listener to the delete button.
-   deleteButton.addEventListener("click", () => {
-    // Remove the new book card from the DOM.
+  // Add a click event listener to the delete button.
+  deleteButton.addEventListener("click", () => {
+    // Remove the new book card
     newBookCard.remove();
   });
-  
 
   formElement.reset();
-  
-  alert(`Thank you for donating your book! Viva La Revolution!`)
 
-  // Navigate to the collections page.
-  // window.location.href = "./collections.html";
-
-   // Show the book cards element.
-  //  bookCardsElement.style.display = "block";
-
- 
+  alert(`Thank you for donating your book! Viva La Revolution!`);
 });
-
-// document.querySelector("#enter-button").addEventListener("click", () => {
-//   // Hide the current page.
-//   document.querySelector(".page.active").classList.remove("active");
-//   console.log('this worked')
-
-//   // Show the donations page.
-//   document.querySelector("#donations-page").classList.add("active");
-// });
