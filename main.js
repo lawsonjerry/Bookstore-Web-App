@@ -37,14 +37,14 @@ const booksToBorrow = [
 
 function createBookCard(book) {
   //div for the main element
-  const body = document.querySelector("body");
-  const mainSection = document.querySelector("#main");
-  body.append(mainSection);
+  // const body = document.querySelector("body");
+  // const mainSection = document.querySelector("#main");
+  // body.append(mainSection);
 
   //container for the bookCard Element
   const bookCardsElement = document.createElement("div");
   bookCardsElement.classList.add("bookCardsElement");
-  mainSection.append(bookCardsElement);
+  // mainSection.append(bookCardsElement);
 
   //container for our books
   const bookCard = document.createElement("div");
@@ -126,16 +126,28 @@ function createBookCard(book) {
   bookShoppingArea.append(currentOrders);
   bookShoppingArea.append(bookCart);
   bookCard.append(deleteButton);
+
+  return bookCard;
 }
+
+const bookCardsElement = document.createElement("div");
 
 //for loop to create and add new books into the booksToBorrow list
 window.onload = function () {
+  bookCardsElement.classList.add("bookCardsElement");
   for (let book of booksToBorrow) {
-    createBookCard(book);
+    bookCardsElement.append(createBookCard(book));
   }
+  const mainSection = document.querySelector("#main");
+  const body = document.querySelector("body");
+
+  mainSection.append(bookCardsElement);
+  body.append(mainSection);
+
+  
 };
 
-const bookCardsElement = document.querySelector(".bookCardsElement");
+
 
 //gets the form element
 const formElement = document.querySelector("form");
@@ -179,17 +191,17 @@ formElement.addEventListener("submit", (event) => {
   }
 
   // Create a new book object.
-  const book = {
+  let newBook = {
     title: event.target.bookName.value,
     author: event.target.bookAuthor.value,
     description: event.target.bookDescription.value,
     img: event.target.bookImageUrl.value,
   };
 
-  // Create a new book card.
-  const newBookCard = createBookCard(book);
+  // Create a new book card
+  newBookCard = createBookCard(newBook);
 
-  booksToBorrow.unshift(newBookCard);
+  bookCardsElement.prepend(newBookCard);
 
   // Create a new delete button element and add it to the new book card.
   const deleteButton = document.createElement("button");
@@ -206,6 +218,4 @@ formElement.addEventListener("submit", (event) => {
   formElement.reset();
 
   alert(`Thank you for donating your book! Viva La Revolution!`);
-
- 
 });
