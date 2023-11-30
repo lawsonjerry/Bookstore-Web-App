@@ -36,11 +36,6 @@ const booksToBorrow = [
 ];
 
 function createBookCard(book) {
-  //div for the main element
-  // const body = document.querySelector("body");
-  // const mainSection = document.querySelector("#main");
-  // body.append(mainSection);
-
   //container for the bookCard Element
   const bookCardsElement = document.createElement("div");
   bookCardsElement.classList.add("bookCardsElement");
@@ -62,7 +57,7 @@ function createBookCard(book) {
   bookItemAuthor.textContent = book.author;
 
   //span for book genre
-  const bookItemGenre = document.createElement("span");
+  const bookItemGenre = document.createElement("p");
   bookItemGenre.id = "genre";
   bookItemGenre.textContent = book.genre;
 
@@ -101,14 +96,19 @@ function createBookCard(book) {
   bookCart.id = "book-cart";
   bookCart.textContent = "🛒";
   bookCart.addEventListener("click", () => {
+    if (book.inventoryCounter > 0) {
     currentOrders.textContent = ++book.order;
     currentBookItemInventoryCounter.textContent = --book.inventoryCounter;
+    } else {
+      alert("Book inventory is at 0. Please select another book.");
+    }
   });
 
   const deleteButton = document.createElement("button");
   deleteButton.classList.add("delete-button");
   deleteButton.textContent = "Delete";
-  // Add a click event listener to the delete button.
+
+  // deletes books
   deleteButton.addEventListener("click", () => {
     // Remove the new book card from the DOM.
     bookCard.remove();
@@ -143,11 +143,7 @@ window.onload = function () {
 
   mainSection.append(bookCardsElement);
   body.append(mainSection);
-
-  
 };
-
-
 
 //gets the form element
 const formElement = document.querySelector("form");
@@ -156,16 +152,12 @@ const formElement = document.querySelector("form");
 const title = formElement.querySelector("[name='bookName']").value;
 const author = formElement.querySelector("[name='bookAuthor']").value;
 const description = formElement.querySelector("[name='bookDescription']").value;
+const genre = formElement.querySelector("[name='genre']").value;
 const img = formElement.querySelector("[name='bookImageUrl']").value;
+const donations = formElement.querySelector("[name='bookDonated']").value;
 
-// // Create a new book object.
-// const book = {
-//   title: event.target.bookName.value,
-//     author: event.target.bookAuthor.value,
-//     description: event.target.bookDescription.value,
-//     img: event.target.bookImageUrl.value,
-// };
 
+//resets form entry
 const reset = document.querySelector(".reset-button");
 reset.addEventListener("click", (event) => {
   event.preventDefault();
@@ -178,24 +170,16 @@ formElement.addEventListener("submit", (event) => {
 
   event.target;
 
-  if (formElement.bookName.value === "") {
-    return alert("You must provide the title of the book!");
-  }
-
-  if (formElement.bookAuthor.value === "") {
-    return alert("You must provide the author of the book!");
-  }
-
-  if (formElement.bookImageUrl.value === "") {
-    return alert("You must provide an image of the book!");
-  }
 
   // Create a new book object.
   let newBook = {
-    title: event.target.bookName.value,
-    author: event.target.bookAuthor.value,
-    description: event.target.bookDescription.value,
+    title: `Book Title: ${event.target.bookName.value}`,
+    author: `Author: ${event.target.bookAuthor.value}`,
+    description: `Description: ${event.target.bookDescription.value}`,
+    genre: `Genre: ${event.target.genre.value}`,
     img: event.target.bookImageUrl.value,
+    inventoryText: `Available To Borrow: ${event.target.bookDonated.value}`,
+    order: 0
   };
 
   // Create a new book card
@@ -207,7 +191,7 @@ formElement.addEventListener("submit", (event) => {
   const deleteButton = document.createElement("button");
   deleteButton.classList.add("delete-button");
   deleteButton.textContent = "Delete";
-  // newBookCard.append(deleteButton);
+  
 
   // Add a click event listener to the delete button.
   deleteButton.addEventListener("click", () => {
